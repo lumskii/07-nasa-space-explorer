@@ -47,7 +47,6 @@ main{flex:1}
   padding:.5rem .75rem;border:1px solid #cbd5e1;border-radius:var(--radius);
 }
 button#fetch-btn{
-  grid-column:1/-1;
   display:flex;align-items:center;justify-content:center;gap:.5rem;
   background:var(--nasa-red);border:0;padding:.75rem 1.5rem;
   color:#fff;font-weight:600;border-radius:var(--radius);cursor:pointer;
@@ -56,6 +55,58 @@ button#fetch-btn{
 button#fetch-btn:disabled{background:#9ca3af;cursor:not-allowed}
 button#fetch-btn:not(:disabled):hover{
   background:#e0341c;box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+/* ---------- button container for centering ---------- */
+.button-container{
+  grid-column:1/-1;
+  display:flex;
+  gap:1rem;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+/* ---------- modern clear button styling ---------- */
+button#clear-btn{
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  background:linear-gradient(135deg, var(--grey-600), #5a6c7d);
+  border:0;padding:.75rem 1.5rem;
+  color:#fff;font-weight:600;border-radius:var(--radius);cursor:pointer;
+  transition:all .3s ease;
+  box-shadow:0 2px 8px rgba(0,0,0,.1);
+  position:relative;
+  overflow:hidden;
+}
+
+button#clear-btn::before{
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+  transition:left .6s;
+}
+
+button#clear-btn:not(:disabled):hover::before{
+  left:100%;
+}
+
+button#clear-btn:disabled{
+  background:linear-gradient(135deg, #d1d5db, #9ca3af);
+  cursor:not-allowed;
+  opacity:.6;
+}
+
+button#clear-btn:not(:disabled):hover{
+  background:linear-gradient(135deg, #5a6c7d, var(--grey-600));
+  box-shadow:0 4px 16px rgba(0,0,0,.2);
+  transform:translateY(-2px);
+}
+
+button#clear-btn:not(:disabled):active{
+  transform:translateY(0);
+  box-shadow:0 2px 8px rgba(0,0,0,.1);
 }
 .error-msg{color:var(--nasa-red);font-weight:600;text-align:center;margin-top:.5rem}
 
@@ -89,12 +140,37 @@ button#fetch-btn:not(:disabled):hover{
 .card:hover img{transform:scale(1.05)}
 .card .play{
   position:absolute;inset:0;background:rgba(0,0,0,.4);display:flex;
-  align-items:center;justify-content:center;color:#fff;font-size:3rem
+  align-items:center;justify-content:center;color:#fff;font-size:3rem;
+  transition:all .3s ease;
+}
+.card:hover .play{
+  background:rgba(0,0,0,.6);
+  transform:scale(1.1);
 }
 .card .info{padding:1rem}
 .card .info h3{margin:0 0 .2rem;font-size:1rem;color:var(--nasa-blue);
   line-height:1.3}
 .card .info p{margin:0;font-size:.85rem;color:var(--grey-600)}
+
+/* ---------- media badge for video types ---------- */
+.media-badge{
+  position:absolute;
+  top:0.5rem;
+  right:0.5rem;
+  background:rgba(0,0,0,.8);
+  color:#fff;
+  padding:.25rem .5rem;
+  border-radius:.25rem;
+  font-size:.75rem;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  backdrop-filter:blur(4px);
+}
+
+.media-badge:has-text("YouTube"){
+  background:rgba(255,0,0,.9);
+}
 
 /* ---------- loading ---------- */
 .loading{display:flex;flex-direction:column;align-items:center;justify-content:center;

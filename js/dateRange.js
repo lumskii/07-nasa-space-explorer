@@ -8,6 +8,12 @@ const earliestDate = '1995-06-16';
 const today = new Date().toISOString().split('T')[0];
 
 function setupDateInputs(startInput, endInput) {
+  // Check if the input elements exist before trying to set properties
+  if (!startInput || !endInput) {
+    console.error('Date input elements not found. Make sure elements with the correct IDs exist.');
+    return;
+  }
+  
   // Restrict date selection range from NASA's first image to today
   startInput.min = earliestDate;
   startInput.max = today;

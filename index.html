@@ -36,9 +36,14 @@
         <input type="date" id="end" name="end"
                max="" />
       </div>
-      <button id="fetch-btn" disabled>
-        <span class="icon">🚀</span>Get Space Images
-      </button>
+      <div class="button-container">
+        <button id="fetch-btn" disabled>
+          <span class="icon">🚀</span>Get Space Images
+        </button>
+        <button id="clear-btn" type="button" disabled>
+          <span class="icon">🗑️</span>Clear Results
+        </button>
+      </div>
     </form>
     <p id="range-error" class="error-msg"></p>
   </section>
@@ -67,6 +72,9 @@
   <!-- ╔═══ MODAL (injected) ═══╗ -->
   <div id="modal-root"></div>
 
+  <!-- Load configuration first, then main script -->
+  <script src="js/config.js"></script>
+  <script src="js/dateRange.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

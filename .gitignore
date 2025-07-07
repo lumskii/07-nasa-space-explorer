@@ -1,0 +1,11 @@
+# Environment variables (contains sensitive API keys)
+.env
+
+# Configuration file with API keys
+js/config.js
+
+# Common files to ignore
+.DS_Store
+node_modules/
+*.log
+.vscode/
