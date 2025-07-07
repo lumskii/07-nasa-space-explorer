@@ -2,7 +2,7 @@
 .env
 
 # Configuration file with API keys
-js/config.js
+# js/config.js
 
 # Common files to ignore
 .DS_Store
